@@ -1,8 +1,9 @@
-import { indexPodcasters, createPodcaster, showPodcaster } from './api.js'
-import { onCreatePodcasterSuccess, onIndexPodcasterSuccess, onFailure, onCreatePodcasterSuccess, onShowPodcastSuccess } from './ui.js'
+import { indexPodcasters, createPodcaster, showPodcaster } from "./api.js"
+import { onIndexPodcasterSuccess, onFailure, onCreatePodcasterSuccess, onShowPodcastSuccess } from "./ui.js"
 const createPodcasterForm = document.querySelector('#create-podcaster-form')
 
 indexPodcasters()
+    .then(console.log('Hey'))
 	.then((res) => res.json())
 	.then((res) => onIndexPodcasterSuccess(res.podcaster))
 	.catch(onFailure)
@@ -20,11 +21,11 @@ createPodcasterForm.addEventListener('submit', (event) => {
         .catch(console.log)
 })
 
-createPodcaster(characterData)
+createPodcaster(podcasterData)
     .then(onCreatePodcasterSuccess)
     .catch(console.error)
 
-createPodcaster(characterData)
+createPodcaster(podcasterData)
     .then(onCreatePodcasterSuccess)
     .catch(onFailure)
 

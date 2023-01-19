@@ -1,14 +1,15 @@
-import { showPodcaster } from "./api"
+import { showPodcaster } from "./api.js"
 
 const podcasterContainer = document.querySelector('#podcaster-container')
 const messageContainer = document.querySelector('#message-container')
 const showPodcastContainer = document.querySelector('#show-podcast-container')
 
 export const onIndexPodcasterSuccess = (podcaster) => {
-	characters.forEach((podcaster) => {
+	podcaster.forEach((podcaster) => {
 		const div = document.createElement('div')
 		div.innerHTML = `
-            <h3>${podcaster.firstName} ${podcaster.lastName}</h3>
+            <h3>Podcaster: ${podcaster.name}</h3>
+            <p>Funny Level: ${podcaster.funnyLevel}</p>
         `
 		podcasterContainer.appendChild(div)
 	})
@@ -39,7 +40,7 @@ podcasterContainer.addEventListener('click', (event) => {
 export const onShowPodcastSuccess = (podcaster) => {
 	const div = document.createElement('div')
 	div.innerHTML = `
-        <h3>${podcaster.firstName}</h3>
+        <h3>${podcaster.name}</h3>
         <p>${podcaster.funnyLevel}</p>
     `
 	showPodcastContainer.appendChild(div)
