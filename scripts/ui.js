@@ -10,6 +10,14 @@ export const onIndexPodcasterSuccess = (podcaster) => {
 		div.innerHTML = `
             <h3>${podcaster.name} </h3>
             <p>Funny Level: ${podcaster.funnyLevel}</p>
+            
+            <form data-id="${podcaster._id}">
+                <input type="text" name="podcaster-name"  value="${podcaster.name}" />
+                <input type="text" name="funny-level"  value="${podcaster.funnyLevel}" />
+                <input type="submit" value="Update Podcaster" />
+            </form>
+
+            <button data-id=${podcaster._id}>Delete Character</button>
         `
 		podcasterContainer.appendChild(div)
 	})
@@ -40,12 +48,12 @@ podcasterContainer.addEventListener('click', (event) => {
 export const onShowPodcastSuccess = (podcaster) => {
 	const div = document.createElement('div')
 	div.innerHTML = `
-        <h3>${podcaster.firstName}</h3>
+        <h3>${podcaster.name}</h3>
         <p>${podcaster.funnyLevel}</p>
 
         <form data-id="${podcaster._id}">
-            <input type="text" name="firstName" value="${podcaster.name}">
-            <input type="text" name="lastName" value="${podcaster.funnyLeve}">
+            <input type="text" name="podcaster-name" value="${podcaster.name}">
+            <input type="text" name="funny-level" value="${podcaster.funnyLevel}">
             <input type="submit" value="Update Character">
         </form>
 
